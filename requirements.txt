@@ -1,0 +1,8 @@
+# InstantNeo Course - Dependencies
+
+# Core library
+instantneo[groq]
+
+# Environment variables management
+python-dotenv
+
