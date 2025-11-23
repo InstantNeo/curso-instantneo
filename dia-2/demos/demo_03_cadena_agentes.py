@@ -213,6 +213,7 @@ No formatees a JSON, solo extrae el texto."""
 - empresa
 - monto (solo el número)
 - fecha
+- items (una lista con nombre y cantidad)
 
 Texto de factura:
 {texto_factura}
@@ -495,7 +496,7 @@ if __name__ == "__main__":
     print("  PROCESAMIENTO DE FACTURA CON PIPELINE DE 4 AGENTES")
     print("="*70)
 
-    procesar_factura_pipeline()  # Auto-detecta imagen o usa fallback
+    procesar_factura_pipeline('./1744405478112-72f86cda-8607-4af5-8d06-fd10fb064da6.jpg')  # Auto-detecta imagen o usa fallback
 
     print("\n" + "#"*70)
     print("  FIN DEL DEMO 03")

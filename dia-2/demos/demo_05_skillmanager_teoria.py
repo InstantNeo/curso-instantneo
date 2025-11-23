@@ -507,6 +507,7 @@ def parte_6_ejemplo_practico():
         model=LLAMA_8B_MODEL,
         temperature=0.1,
         role_setup="""Eres un asistente matemático experto en cálculos geométricos y conversiones."""
+        #skills=sm_matematico # También se puede hacer así 
     )
 
     # Asignar el SkillManager al agente
@@ -676,14 +677,14 @@ def parte_4_5_filtrado_avanzado():
     print("\n4. Filtrar skills de geometría 2D (con tags 'geometry' Y '2d'):")
     print("   Para AND lógico, filtra manualmente:")
     geo_skills = sm.get_skills_by_tag("geometry")
-    skills_2d = [name for name in geo_skills if "2d" in sm.get_skill_metadata(name).get("tags", [])]
+    skills_2d = [name for name in geo_skills if "2d" in sm.get_all_skills_metadata()]
     print(f"   Geometría 2D: {skills_2d}")
     print("   Nota: Solo 'area_circulo' tiene ambos tags")
 
     print("\n5. Obtener skill específica por nombre:")
     skill_especifica = sm.get_skill_by_name("resolver_ecuacion")
     print(f"   Skill: {skill_especifica.__name__}")
-    print(f"   Metadata: tags={skill_especifica.metadata.get('tags', [])}")
+    # print(f"   Metadata: tags={skill_especifica.metadata.get('tags', [])}")
 
     print("\n💡 CASOS DE USO:")
     print("   - Agentes especializados por dominio (solo skills de 'database')")
@@ -775,7 +776,7 @@ def parte_8_metadata_personalizada():
             {"input": "dog.png", "output": ["dog", "tail"]}
         ],
         complexity_score=8,
-        author="Team Vision"
+        author="Team Vision",
     )
     def detectar_objetos(imagen_path: str) -> list:
         return ["objeto1", "objeto2"]
